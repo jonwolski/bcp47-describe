@@ -1,0 +1,29 @@
+{
+  "name": "bcp47-describe",
+  "version": "0.0.1",
+  "description": "Builds on existing BCP 47, ISO 3166-1, and UN M.49 packages to provide a user-friendly description for a given language tag.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonwolski/bcp47-describe.git"
+  },
+  "keywords": [
+    "bcp47",
+    "iso3166",
+    "iso15924",
+    "unm49",
+    "iso639",
+    "locale",
+    "language",
+    "i18n"
+  ],
+  "author": "Jonathan K. Wolski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonwolski/bcp47-describe/issues"
+  },
+  "homepage": "https://github.com/jonwolski/bcp47-describe#readme"
+}
