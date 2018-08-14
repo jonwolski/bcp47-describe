@@ -23,3 +23,14 @@ describe('Describing a primary language tag', function () {
   });
 });
 
+describe('A lanugage with region or territory', function() {
+  it('handles ISO 3166-1 alpha-2 territory codes', function() {
+    const actual = describeLang('es-PR')
+    expect(actual).to.eq('Spanish (Puerto Rico)')
+  })
+
+  it('handles UN M.49 region codes', function() {
+    const actual = describeLang('es-419')
+    expect(actual).to.eq('Spanish (Latin America and the Caribbean)')
+  })
+})
