@@ -1,6 +1,7 @@
 const bcp47 = require('bcp-47')
 const iso639 = require('iso-639-3')
 const iso3166_1 = require('iso-3166-1')
+const iso15924 = require('iso-15924')
 const m49 = require('m49-regions')
 const { keyBy } = require('lodash')
 
@@ -41,6 +42,12 @@ function regionOrTerritoryName(code) {
   }
 }
 
+const SCRIPTS = keyBy(iso15924, 'code').freeze
+function scriptName(code) {
+  let script = keyBy(iso15924, 'code')[code]
+  return script ? script.name : null
+}
+
 function describeLang(tag) {
   const parsed = bcp47.parse(tag, {normalize: true})
   let lang = findPrimaryLanguage(parsed.language)
@@ -49,11 +56,22 @@ function describeLang(tag) {
     lang = findPrimaryLanguage(parsed.extendedLanguageSubtags[0])
   }
 
-  description = lang.name
+  let subtags = []
 
   if (parsed.region) {
-    description = `${description} (${regionOrTerritoryName(parsed.region)})`
+    subtags.push(regionOrTerritoryName(parsed.region))
   }
+
+  if (parsed.script) {
+    subtags.push(scriptName(parsed.script))
+  }
+
+  description = lang.name
+
+  if (subtags.length > 0) {
+    description = `${description} (${subtags.join(', ')})`
+  }
+
   return description
 }
 

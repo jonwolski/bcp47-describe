@@ -34,3 +34,15 @@ describe('A lanugage with region or territory', function() {
     expect(actual).to.eq('Spanish (Latin America and the Caribbean)')
   })
 })
+
+describe('A language with a script', function() {
+  it('handles various ISO 15924 script subtags', function() {
+    expect(describeLang('sr-Cyrl')).to.eq('Serbian (Cyrillic)')
+    expect(describeLang('sr-Latn')).to.eq('Serbian (Latin)')
+    expect(describeLang('zh-cmn-Hant')).to.eq('Mandarin Chinese (Han (Traditional variant))')
+  })
+  it('handles both script names and territories', function() {
+    const actual = describeLang('sr-Cyrl-US')
+    expect(actual).to.eq('Serbian (United States of America, Cyrillic)')
+  })
+})
