@@ -14,7 +14,7 @@ function primaryBy3Char(lang) {
 }
 
 function findPrimaryLanguage(code) {
-   return keyBy(iso639, code.length === 2 ? primaryBy2Char : primaryBy3Char)[code]
+  return keyBy(iso639, code.length === 2 ? primaryBy2Char : primaryBy3Char)[code]
 }
 
 function regionName(code, tree) {
