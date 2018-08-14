@@ -2,7 +2,7 @@ const bcp47 = require('bcp-47')
 const iso639 = require('iso-639-3')
 const iso3166_1 = require('iso-3166-1')
 const m49 = require('m49-regions')
-const { find, keyBy } = require('lodash')
+const { keyBy } = require('lodash')
 
 function primaryBy2Char(lang) {
   return lang.iso6391;
