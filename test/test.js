@@ -12,6 +12,12 @@ describe('Describing a primary language tag', function () {
     expect(actual).to.eq('Spanish')
   });
 
+  it('describes `frc` as "Cajun French"', function () {
+    const actual = describeLang('frc')
+    expect(actual).to.eq('Cajun French')
+  });
+
+
   it('describes `cmn` as "Mandarin Chinese"', function () {
     const actual = describeLang('cmn')
     expect(actual).to.eq('Mandarin Chinese')
@@ -40,6 +46,7 @@ describe('A language with a script', function() {
     expect(describeLang('sr-Cyrl')).to.eq('Serbian (Cyrillic)')
     expect(describeLang('sr-Latn')).to.eq('Serbian (Latin)')
     expect(describeLang('zh-cmn-Hant')).to.eq('Mandarin Chinese (Han (Traditional variant))')
+    expect(describeLang('zh-cmn-Hans')).to.eq('Mandarin Chinese (Han (Simplified variant))')
   })
   it('handles both script names and territories', function() {
     const actual = describeLang('sr-Cyrl-US')
